@@ -1,7 +1,13 @@
+@font-face{
+   font-family: 'Monoton', cursive;
+    src: url(https://fonts.googleapis.com/css?family=Monoton&display=swap);
+}
+
 header#main-header{
+   font-family: 'Monoton';
    height: 60px; 
    width:100% ;
-   background:#da552f;
+   background:#6E3667;
    font-size: 18px;
   font-weight: bold;
    color:#FFF;
