@@ -5,7 +5,7 @@ import './styles.css';
 
 export default class Main extends Component {
     state = {
-        products: [],
+        locais: [],
         productInfo: {},
         page: 1,
     }
@@ -14,49 +14,28 @@ export default class Main extends Component {
 
     };
 
-    loadProducts = async (page = 1) => {
-        const response = await api.get(`/products?page=${page}`);
+    loadProducts = async () => {
+        const response = await api.get(`/local`);
 
-        const { docs, ...productInfo } = response.data;
-
-        this.setState({ products: docs, productInfo, page });
+        console.log(response.data);
+        this.setState({ locais: response.data })
     };
 
-    prevPage = () => {
-        const { page } = this.state;
-
-        if (page === 1) return;
-
-        const pageNumber = page - 1;
-        this.loadProducts(pageNumber);
-    }
-
-    nextPage = () => {
-        const { page, productInfo } = this.state;
-
-        if (page === productInfo.pages) return;
-
-        const pageNumber = page + 1;
-        this.loadProducts(pageNumber);
-    }
-
+ 
     render() {
-        const { productInfo, page } = this.state;
+        const { locais } = this.state;
 
         return (
-            <div className="product-list">
-                {this.state.products.map(products => (
-                    <article key={products._id}>
-                        <strong>{products.title}</strong>
-                        <p>{products.description}</p>
-                        <Link to={`/products/${products._id}`}>Acessar</Link>
+            <div className="lista-evento">
+                {locais.map(local => (
+                    <article key={local.id}>
+                        <strong>{local.nome}</strong>
+                        <p>{local.endereco}</p>
+                        <iframe  src={local.linkEndereco} ></iframe>
+
                     </article>
 
                 ))}
-                <div className="actions">
-                    <button disabled={page === 1} onClick={this.prevPage}>Anterior</button>
-                    <button disabled={page === productInfo.pages} onClick={this.nextPage}>Próximo</button>
-                </div>
             </div>
 
 

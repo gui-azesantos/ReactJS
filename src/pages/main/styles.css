@@ -1,10 +1,18 @@
-.product-list{
-    max-width: 700px;
+.lista-evento{
+    max-width: 800px;
     margin: 20px auto 0;
     padding: 0 20px;
 
 }
-.product-list article{
+.lista-evento  iframe{
+    width:400;
+    height:400;
+    border:0;
+   
+     
+      
+}
+.lista-evento article{
     background: #FFF;
     border: 1px solid #DDD;
     border-radius: 5px;
@@ -12,14 +20,14 @@
     margin-bottom: 20px;
 }
 
-.product-list article p{
+.lista-evento article p{
     font-size: 16px;
     color: #999;
     margin-top: 5px;
     line-height: 24px;
 }
 
-.product-list article a{
+.lista-evento article a{
     height: 42px;
     border-radius: 5px;
     border: 2px solid #da552f;
@@ -35,18 +43,18 @@
     transition: all 0.2s;
     
 }
-.product-list article a:hover{
+.lista-evento article a:hover{
    background: #da552f;
    color: #fff;
     
 }
-.product-list .actions{
+.lista-evento .actions{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 
 }
-.product-list .actions button{
+.lista-evento.actions button{
     padding: 10px;
     border-radius: 5px;
     border: 0;
@@ -58,12 +66,13 @@
     
 }
 
-.product-list .actions button[disabled]{
+.lista-evento.actions button[disabled]{
     opacity: 0.5 ;
     cursor: default;
 }
 
-.product-list .actions button[disabled]:hover{
+.lista-evento .actions button[disabled]:hover{
     opacity: 0.5 ;
    
 }
+
