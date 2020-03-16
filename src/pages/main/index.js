@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { Component } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
@@ -9,6 +10,7 @@ export default class Main extends Component {
         productInfo: {},
         page: 1,
     }
+    
     componentDidMount() {
         this.loadProducts();
 
@@ -21,17 +23,20 @@ export default class Main extends Component {
         this.setState({ locais: response.data })
     };
 
- 
+
     render() {
         const { locais } = this.state;
-
         return (
             <div className="lista-evento">
+            
+                <h1>Locais</h1>
                 {locais.map(local => (
+
                     <article key={local.id}>
-                        <strong>{local.nome}</strong>
+                         <strong>{local.nome}</strong>
                         <p>{local.endereco}</p>
-                        <iframe  src={local.linkEndereco} ></iframe>
+                        <iframe src={local.linkEndereco} ></iframe>
+                        <Link to={`/local/${local.id}`}>Acessar</Link>
 
                     </article>
 
